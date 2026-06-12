@@ -15,7 +15,7 @@ QB Elevation Rate measures whether a QB's pass-catchers (WR/TE) systematically h
 ## Key design choices
 
 - **Era-adjusted stats**: each season's per-game stats divided by the league average that year (league-wide receiving YPG dropped from ~39 in 2007 to ~34 in 2024)
-- **Seasons-weighted expected share**: a QB who had a receiver for 5 of his 13 career seasons faces a higher bar (5/13 = 0.385 expected) than one who had him for 1 season (1/13 = 0.077)
+- **Stints-weighted expected share**: a QB who had a receiver for 5 of his 13 qualifying stints faces a higher bar (5/13 = 0.385 expected) than one who had him for 1 stint (1/13 = 0.077). A stint = one receiver-QB-season with 6+ games; a mid-year trade can create two stints in the same season.
 - **50/50 blend**: yards/game and TDs/game weighted equally (tested alternative splits up to 75/25; rank correlation >0.95 against baseline)
 - **Inclusion criteria**: QB 50+ starts, 10+ qualifying receivers; receiver 6+ games in a season with a QB, must have played for 2+ QBs
 - **Scope**: WR/TE receiving stats only. RB receiving and all rushing excluded.
@@ -59,9 +59,10 @@ The script pulls data directly from nflfastR via the `nfl_data_py` wrapper. No e
 | 61 | Alex Smith | -0.89 | 0.59x | 1.48x | 33 |
 | 62 | Colin Kaepernick | -0.99 | 0.99x | 1.99x | 16 |
 
-Full rankings, methodology, and discussion: see other files.
+Full rankings, methodology, and discussion: see the Reddit post.
 
 ## Data source
 
 All data pulled from [nflfastR](https://github.com/nflverse/nflfastR) via [nfl_data_py](https://github.com/nflverse/nfl_data_py).
+
 
